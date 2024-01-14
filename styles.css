@@ -1,0 +1,85 @@
+:root {
+    font-family: "Roboto", sans-serif;
+    --grey: #f0eef1;
+    --black: #050505;
+    --border-radius: 8px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+    --container-width: 1200px;
+    --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--grey);
+    color: var(--black);
+    margin-bottom: 100px;
+}
+
+button,
+input {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10% 0 10%;
+    align-items: center;
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+.library-title {
+    font-size: 3rem;
+}
+
+.btn-log-in {
+    border: none;
+    height: auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+.add-book-container {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-book {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: var(--spacing-xl) 0 var(--spacing-xl) 0;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    width: auto;
+}
+
+.btn-add-book:hover {
+    background-color: darkgrey;
+}
