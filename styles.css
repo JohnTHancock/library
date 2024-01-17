@@ -34,6 +34,11 @@ input {
   outline: none;
 }
 
+p {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -55,13 +60,15 @@ input {
     font-family: inherit;
     padding: 0.75rem 1rem 0.75rem 1rem;
     border-radius: var(--border-radius);
-    cursor: pointer;
 }
 
 .content-container {
     display: grid;
+    padding: 0 10% 0 10%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
+    font-family: inherit;
+    gap: var(--spacing-xl);
 }
 
 .add-book-container {
@@ -82,4 +89,56 @@ input {
 
 .btn-add-book:hover {
     background-color: darkgrey;
+}
+
+.content-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+.content {
+    margin: 0.5rem 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.book-title {
+    font-size: 2rem;
+    font-style: italic;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+}
+
+.trash-can-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+
+.complete {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    background-color: lightgreen;
+    color: darkgreen;
+    border-radius: var(--border-radius);
+}
+
+.incomplete {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    background-color: lightgray;
+    color: darkgray;
+    border-radius: var(--border-radius);
+}
+
+
+
+.content-lower-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
