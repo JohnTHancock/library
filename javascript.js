@@ -3,13 +3,13 @@ const contentContainer = document.querySelector('.content-container');
 
 let btnStatus = '.btn-status';
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
 
     let el = e.target;
     if (el.matches(btnStatus)) {
         e.target.classList.toggle('complete');
         e.target.classList.toggle('incomplete');
-    
+
         if (e.target.classList.contains('complete')) {
             e.target.textContent = 'Complete';
         } else {
@@ -22,12 +22,12 @@ document.addEventListener('click', function(e) {
 
 let trashCanIcon = '.trash-can-icon';
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     let el = e.target;
     if (el.matches(trashCanIcon)) {
-    theNumber = el.getAttribute('data-trash-number');
-    let myDiv = document.querySelector(`[data-index-number='${theNumber}']`);
-    myDiv.remove(myDiv);
+        theNumber = el.getAttribute('data-trash-number');
+        let myDiv = document.querySelector(`[data-index-number='${theNumber}']`);
+        myDiv.remove(myDiv);
     }
 })
 
@@ -54,15 +54,9 @@ function addToArray(newBook) {
     associateObjectToIndex(newBook);
 }
 
-function publishLibrary() {
-    myLibrary.forEach((Book) => {
-         addBookCard(Book);
-        });
-};
-
 function associateObjectToIndex(y) {
-libraryIndex = myLibrary.findIndex(x => x.title === y.title);
-y.index = libraryIndex;
+    libraryIndex = myLibrary.findIndex(x => x.title === y.title);
+    y.index = libraryIndex;
 }
 
 function addBookCard(newBook) {
@@ -92,8 +86,8 @@ function addBookCard(newBook) {
 
     let newStatusBtn = document.createElement('button');
     if (newBook.status == true) {
-    newStatusBtn.classList.add('btn-status', 'complete');
-    newStatusBtn.textContent = 'Complete';
+        newStatusBtn.classList.add('btn-status', 'complete');
+        newStatusBtn.textContent = 'Complete';
     } else {
         newStatusBtn.classList.add('btn-status', 'incomplete');
         newStatusBtn.textContent = 'Incomplete';
