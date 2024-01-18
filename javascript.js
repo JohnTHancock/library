@@ -33,10 +33,15 @@ function Book(author, title, pages, status) {
 }
 
 const earthsea = new Book('Ursula K. Le Guin', 'A Wizard of Earthsea', 267, true); //example
+const hobbit = new Book('J.R.R. Tolkein', 'The Hobbit', 900, false)
 
 function addToArray(newBook) { //temporary function
     myLibrary.push(newBook);
 }
+
+function publishLibrary() {
+    myLibrary.forEach((Book) => addBookToLibrary(Book));
+};
 
 // function addContentCard() {
 //     let newCard = document.createElement('div');
@@ -98,8 +103,13 @@ function addBookToLibrary(newBook) {
     newCard.appendChild(contentLowerRow);
 
     let newStatusBtn = document.createElement('button');
+    if (newBook.status == true) {
     newStatusBtn.classList.add('btn-status', 'complete');
     newStatusBtn.textContent = 'Complete';
+    } else {
+        newStatusBtn.classList.add('btn-status', 'incomplete');
+        newStatusBtn.textContent = 'Incomplete';
+    }
     contentLowerRow.appendChild(newStatusBtn);
 
     let newTrashCan = document.createElement('img');
