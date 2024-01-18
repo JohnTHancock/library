@@ -20,6 +20,17 @@ document.addEventListener('click', function(e) {
     }
 })
 
+let trashCanIcon = '.trash-can-icon';
+
+document.addEventListener('click', function(e) {
+    let el = e.target;
+    if (el.matches(trashCanIcon)) {
+    theNumber = el.getAttribute('data-trash-number');
+    let myDiv = document.querySelector(`[data-index-number='${theNumber}']`);
+    myDiv.remove(myDiv);
+    }
+})
+
 const myLibrary = [];
 
 function Book(author, title, pages, status) {
@@ -27,60 +38,37 @@ function Book(author, title, pages, status) {
     this.title = title;
     this.pages = pages;
     this.status = status;
-    this.check = function() {
-        console.log(`${this.title} by ${this.author} is ${this.pages} pages long.`);
-    }
+    this.index = null;
+}
+
+function addBookToLibrary(newBook) {
+    addToArray(newBook);
+    addBookCard(newBook);
 }
 
 const earthsea = new Book('Ursula K. Le Guin', 'A Wizard of Earthsea', 267, true); //example
-const hobbit = new Book('J.R.R. Tolkein', 'The Hobbit', 900, false)
+const hobbit = new Book('J.R.R. Tolkein', 'The Hobbit', 900, false) //example
 
-function addToArray(newBook) { //temporary function
+function addToArray(newBook) {
     myLibrary.push(newBook);
+    associateObjectToIndex(newBook);
 }
 
 function publishLibrary() {
-    myLibrary.forEach((Book) => addBookToLibrary(Book));
+    myLibrary.forEach((Book) => {
+         addBookCard(Book);
+        });
 };
 
-// function addContentCard() {
-//     let newCard = document.createElement('div');
-//     newCard.classList.add('content-card');
-//     contentContainer.appendChild(newCard);
+function associateObjectToIndex(y) {
+libraryIndex = myLibrary.findIndex(x => x.title === y.title);
+y.index = libraryIndex;
+}
 
-//     let newBookTitle = document.createElement('p');
-//     newBookTitle.classList.add('book-title', 'content');
-//     newBookTitle.textContent = 'Hello world';
-//     newCard.appendChild(newBookTitle);
-
-//     let newBookAuthor = document.createElement('p');
-//     newBookAuthor.classList.add('author', 'content');
-//     newBookAuthor.textContent = 'Hugh Janus';
-//     newCard.appendChild(newBookAuthor);
-
-//     let newBookPages = document.createElement('p');
-//     newBookPages.classList.add('page-count', 'content');
-//     newBookPages.textContent = '69'
-//     newCard.appendChild(newBookPages);
-
-//     let contentLowerRow = document.createElement('div');
-//     contentLowerRow.classList.add('content-lower-row');
-//     newCard.appendChild(contentLowerRow);
-
-//     let newStatusBtn = document.createElement('button');
-//     newStatusBtn.classList.add('btn-status', 'complete');
-//     newStatusBtn.textContent = 'Complete';
-//     contentLowerRow.appendChild(newStatusBtn);
-
-//     let newTrashCan = document.createElement('img');
-//     newTrashCan.classList.add('trash-can-icon');
-//     newTrashCan.src = '/images/trash-can-outline.svg';
-//     contentLowerRow.appendChild(newTrashCan);
-// }
-
-function addBookToLibrary(newBook) {
+function addBookCard(newBook) {
     let newCard = document.createElement('div');
     newCard.classList.add('content-card');
+    newCard.setAttribute('data-index-number', newBook.index);
     contentContainer.appendChild(newCard);
 
     let newBookTitle = document.createElement('p');
@@ -115,5 +103,7 @@ function addBookToLibrary(newBook) {
     let newTrashCan = document.createElement('img');
     newTrashCan.classList.add('trash-can-icon');
     newTrashCan.src = '/images/trash-can-outline.svg';
+    newTrashCan.setAttribute('data-trash-number', newBook.index);
     contentLowerRow.appendChild(newTrashCan);
 }
+
