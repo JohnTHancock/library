@@ -22,7 +22,7 @@
         </div>
         <div class="content-container">
             <div class="add-book-container">
-                <button class="btn-add-book">+ Add Book</button>
+                <button id="btn-add-book">+ Add Book</button>
             </div>
             <div class="content-card test-card">
                 <p class="book-title content">The Lord Of The Rings</p>
@@ -35,6 +35,24 @@
             </div>
         </div>
     </div>
+    <dialog>
+        <h1>Add a new book</h1>
+        <form>
+            <div>
+                <label for="book_title">Title: </label>
+                <input type="text" id="book_title">
+            </div>
+            <div>
+                <label for="book_author">Author: </label>
+                <input type="text" id="book_author">
+            </div>
+            <div>
+                <label for="book_pages">Page Count: </label>
+                <input type="number" id="book_pages">
+            </div>
+        </form>
+        <button id="close-dialog">Close</button>
+    </dialog>
 </body>
 <script src="javascript.js"></script>
 

@@ -78,7 +78,7 @@ p {
     justify-content: center;
 }
 
-.btn-add-book {
+#btn-add-book {
     font-size: 2rem;
     font-weight: 500;
     margin: var(--spacing-xl) 0 var(--spacing-xl) 0;
@@ -89,6 +89,60 @@ p {
 
 .btn-add-book:hover {
     background-color: darkgrey;
+}
+
+dialog {
+    width: 40%;
+    padding: var(--spacing-xl);
+}
+
+dialog h1 {
+    text-align: center;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+}
+
+dialog form div {
+    display: flex;
+    margin-bottom: var(--spacing-lg);
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 2rem;
+}
+
+form div label {
+    text-align: right;
+    width: 250px;
+    padding-right: 20px;
+}
+
+input {
+    background-color: var(--grey);
+    border: 1px solid #d6d9dc;
+    border-radius: var(--border-radius);
+    width: 350px;
+    height: initial;
+}
+
+dialog::backdrop {
+    background-color: #050505;
+    opacity: 0.75;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .content-card {

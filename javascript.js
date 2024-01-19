@@ -1,10 +1,18 @@
 const contentContainer = document.querySelector('.content-container');
-// const statusBtn = document.querySelector('.btn-status');
+const dialog = document.querySelector('dialog');
+const btnAddBook = document.getElementById('btn-add-book');
+const btnCloseDialog = document.getElementById('close-dialog');
+
+btnAddBook.addEventListener('click', () => {
+    dialog.showModal();
+});
+
+btnCloseDialog.addEventListener('click', () => {
+    dialog.close();
+});
 
 let btnStatus = '.btn-status';
-
 document.addEventListener('click', function (e) {
-
     let el = e.target;
     if (el.matches(btnStatus)) {
         e.target.classList.toggle('complete');
@@ -21,7 +29,6 @@ document.addEventListener('click', function (e) {
 })
 
 let trashCanIcon = '.trash-can-icon';
-
 document.addEventListener('click', function (e) {
     let el = e.target;
     if (el.matches(trashCanIcon)) {
