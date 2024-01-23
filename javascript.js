@@ -1,15 +1,61 @@
 const contentContainer = document.querySelector('.content-container');
 const dialog = document.querySelector('dialog');
 const btnAddBook = document.getElementById('btn-add-book');
-const btnCloseDialog = document.getElementById('close-dialog');
+const titleInputBox = document.getElementById('book_title');
+const authorInputBox = document.getElementById('book_author');
+const pagesInputBox = document.getElementById('book_pages');
+const statusSelectBox = document.getElementById('book_status');
+const btnCancel = document.getElementById('close-dialog');
+const btnSubmit = document.getElementById('submit-dialog');
+
+let tempTitle;
+let tempAuthor;
+let tempPages;
+let tempStatus = true;
 
 btnAddBook.addEventListener('click', () => {
     dialog.showModal();
 });
 
-btnCloseDialog.addEventListener('click', () => {
-    dialog.close();
+titleInputBox.addEventListener('change', (e) => {
+    tempTitle = titleInputBox.value;
 });
+
+authorInputBox.addEventListener('change', (e) => {
+    tempAuthor = authorInputBox.value;
+});
+
+pagesInputBox.addEventListener('change', (e) => {
+    tempPages = pagesInputBox.value;
+});
+
+statusSelectBox.addEventListener('change', (e) => {
+    if (statusSelectBox.value === 'complete') {
+        tempStatus = true;
+    } else {
+        tempStatus = false;
+    }
+});
+
+btnSubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    newBook = new Book(tempAuthor, tempTitle, tempPages, tempStatus);
+    addBookToLibrary(newBook);
+    dialog.close();
+    tempAuthor = '';
+    authorInputBox.value = '';
+    tempTitle = '';
+    titleInputBox.value = '';
+    tempPages = '';
+    pagesInputBox.value = '';
+    tempStatus = true;
+    statusSelectBox.value = 'complete';
+})
+
+btnCancel.addEventListener('click', (e) => {
+    e.preventDefault();
+    dialog.close();
+})
 
 let btnStatus = '.btn-status';
 document.addEventListener('click', function (e) {
@@ -107,4 +153,3 @@ function addBookCard(newBook) {
     newTrashCan.setAttribute('data-trash-number', newBook.index);
     contentLowerRow.appendChild(newTrashCan);
 }
-

@@ -25,13 +25,13 @@ body {
 
 button,
 input {
-  border: none;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  cursor: pointer;
-  outline: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    outline: none;
 }
 
 p {
@@ -127,6 +127,7 @@ input {
     border-radius: var(--border-radius);
     width: 350px;
     height: initial;
+    padding-left: 0.5rem;
 }
 
 dialog::backdrop {
@@ -143,6 +144,50 @@ input::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
+}
+
+select {
+    appearance: none;
+    display: block;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    width: 363px;
+    padding: 3px;
+    padding-left: 0.5rem;
+    height: initial;
+    background-color: var(--grey);
+    border: 1px solid #d6d9dc;
+    border-radius: var(--border-radius);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-size: 1rem;
+    top: 12px;
+    right: 175px;
+    position: absolute;
+}
+
+.modal-buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#close-dialog {
+    background-color: lightcoral;
+    color: darkred;
+}
+
+#submit-dialog {
+    background-color: lightgreen;
+    color: darkgreen;
 }
 
 .content-card {
