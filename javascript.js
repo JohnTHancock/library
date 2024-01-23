@@ -55,6 +55,14 @@ btnSubmit.addEventListener('click', (e) => {
 btnCancel.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.close();
+    tempAuthor = '';
+    authorInputBox.value = '';
+    tempTitle = '';
+    titleInputBox.value = '';
+    tempPages = '';
+    pagesInputBox.value = '';
+    tempStatus = true;
+    statusSelectBox.value = 'complete';
 })
 
 let btnStatus = '.btn-status';
@@ -81,6 +89,16 @@ document.addEventListener('click', function (e) {
         theNumber = el.getAttribute('data-trash-number');
         let myDiv = document.querySelector(`[data-index-number='${theNumber}']`);
         myDiv.remove(myDiv);
+        myLibrary.splice(theNumber, 1);
+    }
+})
+
+let exampleDelete = '.example-delete';
+document.addEventListener('click', function (e) {
+    let el = e.target;
+    if (el.matches(exampleDelete)) {
+    let testCard = document.querySelector('.test-card');
+    testCard.remove(testCard);
     }
 })
 
